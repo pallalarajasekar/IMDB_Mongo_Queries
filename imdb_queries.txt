@@ -1,0 +1,11 @@
+lList all media of a particular film: db.movies.find({"name": "Baahubali"}, {media:1}).toArray()
+List all media and reviews of a particular film: db.movies.find({"name": "Baahubali"}, {media:1, review:1}).toArray()
+List all cast along with roles and artist of a particular film: db.movies.find({}, {name:1, cast:1}).toArray()
+List all the reviews given by particular user: db.movies.find({review:{$elemMatch:{userName : "Sekhar"}}}, {"review.desc.$":1}).pretty();
+List all the skills of a particular Artist: db.movies.find({cast:{$elemMatch:{actor : "Pawan Kalyan"}}}, {"cast.skill.$":1}).pretty();
+List all the roles performed by a particular artist: db.movies.find({cast:{$elemMatch:{actor : "Prabush"}}}, {"cast.role.$":1}).pretty();
+
+
+
+
+
